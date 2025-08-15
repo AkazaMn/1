@@ -21,17 +21,21 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
+            color: rgb(241, 238, 238);
             text-align: center;
             transition: background-color 0.3s ease;
             flex-direction: column;
+            position: relative; /* Needed for correct layout */
         }
 
+        /* Container for buttons and title */
         .button-container {
             padding: 20px;
             border-radius: 10px;
-            background: rgba(191, 222, 169, 0.5); /* semi-transparent background */
+            background: #f8f9f7eb; /* semi-transparent background */
             margin-bottom: 20px;
+            position: relative; /* Makes sure it stays on top */
+            z-index: 1;
         }
 
         .button-container h1 {
@@ -69,13 +73,6 @@
             transition: transform 0.3s ease;
         }
 
-        h1 {
-            color: #333;
-            
-        }
-
-        
-
         .cta-button.rainbow:hover {
             transform: scale(1.1);
             box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
@@ -95,13 +92,13 @@
 
         /* Dark Mode Styles */
         body.dark-mode {
-            background-color: #333;
+            background-color: #050000;
             color: #fff;
         }
 
         button#toggle-button {
             position: fixed;
-            top: 20px;
+            top: 5px;
             right: 20px;
             padding: 10px 20px;
             font-size: 1.2rem;
@@ -118,81 +115,157 @@
         }
 
         /* List styling */
-        .item-list a{
+        .item-list {
             list-style: none;
             padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
+            z-index: 2; /* Make sure it's above the wave background */
+        }
+
+        .item-list a {
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             text-decoration: none;
             color: rgb(238, 122, 6);
-            
+            width: 100%;
         }
-         a:hover{
+
+        a:hover {
             color: #8ad621;
             font-size: 18px;
-         }
+        }
+
         .item-list li {
             display: flex;
             align-items: center;
             margin: 10px 0;
             font-size: 1.2rem;
-            color: #241c1c;
+            color: #356ad3;
             cursor: pointer;
             user-select: none;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-size: 17px;
-            
-            
+            width: 100%;
         }
          
-        li:hover{
+        li:hover {
             color: #30c963;
-            
         }
-        
 
-        .item-list li  img {
+        .item-list li img {
             width: 70px;
             height: 70px;
-            margin-right: 5px;
+            margin-right: 10px;
             border-radius: 50%;
-
         }
-      
+
+        /* Styling for the wave background */
+        section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section .wave {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #4973ff;
+            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+            transition: 0.5s;
+        }
+
+        section .wave span {
+            content: "";
+            position: absolute;
+            width: 125vh;
+            height: 125vh;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -75%);
+            background: #000;
+        }
+
+        /* Multiple wave layers */
+        section .wave span:nth-child(1) {
+            border-radius: 45%;
+            background: rgba(20, 20, 20, 1);
+            animation: animate 5s linear infinite;
+        }
+
+        section .wave span:nth-child(2) {
+            border-radius: 40%;
+            background: rgba(20, 20, 20, 0.5);
+            animation: animate 10s linear infinite;
+        }
+
+        section .wave span:nth-child(3) {
+            border-radius: 42.5%;
+            background: rgba(20, 20, 20, 0.5);
+            animation: animate 15s linear infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: translate(-50%, -75%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -75%) rotate(360deg);
+            }
+        }
+        h1{
+            color: #241c1c;
+        }
     </style>
 </head>
 <body>
-    <button id="toggle-button">Dark Mode</button>
-    
     <div class="button-container">
         <h1>လင့်ကိုသွားရန်နှိပ်ပါ</h1>
         <a class="cta-button rainbow" href="https://t.me/weaponsmmsub" target="_blank">Channel Link</a>
     </div>
 
     <!-- List Section -->
-   <ul class="item-list">
-    
-    <li>
-        <a href="https://t.me/weaponsmmsub/3" target="_blank">
-            <img src="./weapons-8.webp" alt="Item 1">
-            Weapons 2025
-        </a>
-    </li>
-    <li>
-        <a href="https://t.me/akazaMovie/8" target="_blank">
-            <img src="./together-2025_5g8s.jpg" alt="Item 2">
-            Together 2025
-        </a>
-    </li>
-    <li>
-        <a href="https://t.me/akazaMovie/12" target="_blank">
-            <img src="./new-poster-for-the-naked-gun-v0-0p04vr2yfj9f1.webp" alt="Item 3">
-            The Naked Gun
-        </a>
-    </li>
-</ul>
+    <ul class="item-list">
+        <li>
+            <a href="https://t.me/weaponsmmsub/3" target="_blank">
+                <img src="./weapons-8.webp" alt="Item 1">
+                Weapons 2025
+            </a>
+        </li>
+        <li>
+            <a href="https://t.me/akazaMovie/8" target="_blank">
+                <img src="./together-2025_5g8s.jpg" alt="Item 2">
+                Together 2025
+            </a>
+        </li>
+        <li>
+            <a href="https://t.me/akazaMovie/12" target="_blank">
+                <img src="./new-poster-for-the-naked-gun-v0-0p04vr2yfj9f1.webp" alt="Item 3">
+                The Naked Gun
+            </a>
+        </li>
+    </ul>
 
+    <!-- Wave Background -->
+    <section>
+        <div class="wave">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </section>
+
+    <button id="toggle-button">Dark Mode</button>
 
     <script>
         const toggleButton = document.getElementById("toggle-button");
@@ -206,6 +279,5 @@
         });
     </script>
 
-    <script src="./link.js"></script>
 </body>
 </html>
