@@ -24,13 +24,14 @@
             color: white;
             text-align: center;
             transition: background-color 0.3s ease;
+            flex-direction: column;
         }
 
         .button-container {
             padding: 20px;
             border-radius: 10px;
             background: rgba(191, 222, 169, 0.5); /* semi-transparent background */
-            
+            margin-bottom: 20px;
         }
 
         .button-container h1 {
@@ -52,44 +53,45 @@
         }
 
         /* Existing cta-button styles + rainbow effect */
-.cta-button.rainbow {
-    display: inline-block;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    border: none;
-    color: white;
-    border-radius: 50px;
-    cursor: pointer;
-    text-decoration: none;
-    background: linear-gradient(270deg, black, orange, rgb(194, 194, 133), rgb(140, 225, 140), rgb(91, 91, 176), rgb(142, 107, 167), violet, red);
-    background-size: 1400% 1400%;
-    animation: rainbow 6s ease infinite;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-    transition: transform 0.3s ease;
-}
+        .cta-button.rainbow {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            background: linear-gradient(270deg, black, orange, rgb(194, 194, 133), rgb(140, 225, 140), rgb(91, 91, 176), rgb(142, 107, 167), violet, red);
+            background-size: 1400% 1400%;
+            animation: rainbow 6s ease infinite;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s ease;
+        }
 
-h1{
- color: #333;
- user-select: none;
-}
+        h1 {
+            color: #333;
+            
+        }
 
-.cta-button.rainbow:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
-}
+        
 
-@keyframes rainbow {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
+        .cta-button.rainbow:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+        }
 
+        @keyframes rainbow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
 
         /* Dark Mode Styles */
         body.dark-mode {
@@ -114,6 +116,50 @@ h1{
         button#toggle-button:hover {
             background-color: #FF3D00;
         }
+
+        /* List styling */
+        .item-list a{
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: rgb(238, 122, 6);
+            
+        }
+         a:hover{
+            color: #8ad621;
+            font-size: 18px;
+         }
+        .item-list li {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            font-size: 1.2rem;
+            color: #241c1c;
+            cursor: pointer;
+            user-select: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 17px;
+            
+            
+        }
+         
+        li:hover{
+            color: #30c963;
+            
+        }
+        
+
+        .item-list li  img {
+            width: 70px;
+            height: 70px;
+            margin-right: 5px;
+            border-radius: 50%;
+
+        }
+      
     </style>
 </head>
 <body>
@@ -122,16 +168,31 @@ h1{
     <div class="button-container">
         <h1>လင့်ကိုသွားရန်နှိပ်ပါ</h1>
         <a class="cta-button rainbow" href="https://t.me/weaponsmmsub" target="_blank">Channel Link</a>
-        <div class="mvText">
-            
-            
-        </div>
-        
-        
-        
-
     </div>
+
+    <!-- List Section -->
+   <ul class="item-list">
     
+    <li>
+        <a href="https://t.me/weaponsmmsub/3" target="_blank">
+            <img src="./weapons-8.webp" alt="Item 1">
+            Weapons 2025
+        </a>
+    </li>
+    <li>
+        <a href="https://t.me/akazaMovie/8" target="_blank">
+            <img src="./together-2025_5g8s.jpg" alt="Item 2">
+            Together 2025
+        </a>
+    </li>
+    <li>
+        <a href="https://t.me/akazaMovie/12" target="_blank">
+            <img src="./new-poster-for-the-naked-gun-v0-0p04vr2yfj9f1.webp" alt="Item 3">
+            The Naked Gun
+        </a>
+    </li>
+</ul>
+
 
     <script>
         const toggleButton = document.getElementById("toggle-button");
